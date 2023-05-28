@@ -1,6 +1,7 @@
 ﻿using StationaryOrderManagementApp.DAL;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,9 +10,15 @@ namespace StationaryOrderManagementApp.Utilities
 {
     public class Order
     {
+        [Required(ErrorMessage = "Name is required.")]
         public string Name { get; set; }
+
+        [Required(ErrorMessage = "Address is required.")]
         public string Address { get; set; }
+
+        [Required(ErrorMessage = "Due Date is required.")]
         public int DueDate { get; set; }
+
         public List<IProduct> Products { get; } = new List<IProduct>();
 
         public void AddProduct(IProduct product)
@@ -62,7 +69,6 @@ namespace StationaryOrderManagementApp.Utilities
 
             Console.WriteLine("--------------------");
         }
-
 
         public void GenerateColorReport()
         {
